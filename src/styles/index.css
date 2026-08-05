@@ -1,0 +1,141 @@
+/*
+ * index.css — Tailwind + sistema de diseño Covalto³ ("Explorador IA")
+ *
+ * Tipografía (Noto Sans) e íconos (Material Symbols) se auto-hospedan vía
+ * paquetes npm (@fontsource, material-symbols): Vite los empaqueta como
+ * assets locales, sin llamadas de red en tiempo de ejecución (guardrail §9).
+ */
+@import 'tailwindcss';
+@import '@fontsource/noto-sans/400.css';
+@import '@fontsource/noto-sans/500.css';
+@import '@fontsource/noto-sans/600.css';
+@import '@fontsource/noto-sans/700.css';
+@import 'material-symbols/outlined.css';
+
+/* ============================================================
+ * TOKENS DE MARCA — dos temas intercambiables vía data-theme
+ * (ver CLAUDE.md §6: "decisión de marca abierta").
+ * 'covalto'  → sistema de marca Covalto con acentos espaciales (DEFAULT)
+ * 'espacial' → capa ilustrativa de campaña (fondo oscuro tipo arte de ref.)
+ * ============================================================ */
+:root,
+:root[data-theme='covalto'] {
+  /* Paleta de marca */
+  --color-primary: #062323; /* verde primario */
+  --color-primary-2: #0c3634; /* verde-2 */
+  --color-primary-3: #134c48; /* verde-3 */
+  --color-accent: #ffba1f; /* ámbar acento */
+  --color-mint: #84c28b; /* verde menta */
+
+  /* Superficies */
+  --color-bg: #f9f8f7; /* off-white */
+  --color-surface: #ffffff;
+  --color-surface-mint: #f0fdf1;
+  --color-surface-beige: #f5efe4;
+
+  /* Texto y bordes */
+  --color-text: #0c3634;
+  --color-text-muted: #4b6461;
+  --color-text-on-primary: #f9f8f7;
+  /* Texto fijo claro para el degradado oscuro del hero (--gradient-hero es
+     oscuro en los dos temas, a diferencia de --color-primary) */
+  --color-text-on-dark: #f9f8f7;
+  --color-border: #e4e7e2;
+
+  /* Estados de nodo del mapa de trayectoria */
+  --color-node-locked: #d7d3c9;
+  --color-node-active: var(--color-accent);
+  --color-node-done: var(--color-mint);
+
+  /* Capa ilustrativa espacial (acentos sobre el sistema Covalto) */
+  --gradient-hero: linear-gradient(135deg, #062323 0%, #134c48 55%, #0c3634 100%);
+  --gradient-space-accent: radial-gradient(circle at 30% 20%, rgba(132, 194, 139, 0.25), transparent 60%);
+
+  --shadow-card: 0 4px 16px rgba(6, 35, 35, 0.08);
+  --shadow-card-hover: 0 8px 24px rgba(6, 35, 35, 0.14);
+  --radius-card: 1.25rem;
+}
+
+:root[data-theme='espacial'] {
+  /* Paleta de marca reinterpretada sobre fondo oscuro de campaña */
+  --color-primary: #84c28b;
+  --color-primary-2: #a7d6ad;
+  --color-primary-3: #c7e9cb;
+  --color-accent: #ffba1f;
+  --color-mint: #84c28b;
+
+  /* Superficies oscuras tipo arte de referencia (morado/azul profundo) */
+  --color-bg: #0b0e2a;
+  --color-surface: #161a3f;
+  --color-surface-mint: #1b2147;
+  --color-surface-beige: #1b2147;
+
+  --color-text: #f2f1fb;
+  --color-text-muted: #a3a6c8;
+  --color-text-on-primary: #0b0e2a;
+  --color-text-on-dark: #f2f1fb;
+  --color-border: #2b3168;
+
+  --color-node-locked: #2b3168;
+  --color-node-active: var(--color-accent);
+  --color-node-done: var(--color-mint);
+
+  --gradient-hero: linear-gradient(135deg, #0b0e2a 0%, #1b1147 55%, #2a1b5e 100%);
+  --gradient-space-accent: radial-gradient(circle at 30% 20%, rgba(132, 194, 139, 0.2), transparent 60%);
+
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --radius-card: 1.25rem;
+}
+
+/* ============================================================
+ * Conecta los tokens CSS con las utilidades de Tailwind v4
+ * (permite usar bg-primary, text-accent, rounded-card, etc.)
+ * ============================================================ */
+@theme inline {
+  --font-sans: 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: var(--color-primary);
+  --color-primary-2: var(--color-primary-2);
+  --color-primary-3: var(--color-primary-3);
+  --color-accent: var(--color-accent);
+  --color-mint: var(--color-mint);
+
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-mint: var(--color-surface-mint);
+  --color-surface-beige: var(--color-surface-beige);
+
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-on-primary: var(--color-text-on-primary);
+  --color-text-on-dark: var(--color-text-on-dark);
+  --color-border: var(--color-border);
+
+  --color-node-locked: var(--color-node-locked);
+  --color-node-active: var(--color-node-active);
+  --color-node-done: var(--color-node-done);
+
+  --radius-card: var(--radius-card);
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Transición suave al alternar el flag de tema */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
