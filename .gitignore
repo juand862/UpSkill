@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Vercel (config local de vínculo proyecto <-> carpeta; se genera al correr `vercel link`)
+.vercel
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
