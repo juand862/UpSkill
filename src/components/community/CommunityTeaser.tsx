@@ -1,4 +1,5 @@
 import { Icon } from '@/components/ui/Icon'
+import { useTheme } from '@/theme/ThemeContext'
 
 interface CommunityTeaserProps {
   icono: string
@@ -7,16 +8,36 @@ interface CommunityTeaserProps {
   etiqueta: string
   cta: string
   destacado?: boolean
+  /** Ilustración de campaña (tema espacial) — CLAUDE.md §6 */
+  imagenEspacial?: string
 }
 
 /** Tarjeta teaser de la capa social de la ruta (CLAUDE.md, pantalla 8) — // PLACEHOLDER, sin backend */
-export function CommunityTeaser({ icono, titulo, descripcion, etiqueta, cta, destacado }: CommunityTeaserProps) {
+export function CommunityTeaser({
+  icono,
+  titulo,
+  descripcion,
+  etiqueta,
+  cta,
+  destacado,
+  imagenEspacial,
+}: CommunityTeaserProps) {
+  const { tema } = useTheme()
+  const mostrarImagen = destacado && tema === 'espacial' && imagenEspacial
+
   return (
     <div
-      className={`flex flex-col gap-3 rounded-card p-6 shadow-card ${
+      className={`relative flex flex-col gap-3 overflow-hidden rounded-card p-6 shadow-card ${
         destacado ? 'bg-primary text-text-on-primary' : 'border border-[var(--color-border)] bg-surface'
       }`}
     >
+      {mostrarImagen && (
+        <img
+          src={imagenEspacial}
+          alt=""
+          className="pointer-events-none absolute -right-3 -top-3 w-28 opacity-95 sm:w-32"
+        />
+      )}
       <div className="flex items-center gap-2">
         <span
           className={`flex h-10 w-10 items-center justify-center rounded-full ${
@@ -33,11 +54,13 @@ export function CommunityTeaser({ icono, titulo, descripcion, etiqueta, cta, des
           {etiqueta}
         </span>
       </div>
-      <h3 className="text-lg font-bold">{titulo}</h3>
-      <p className={`text-sm ${destacado ? 'opacity-90' : 'text-text-muted'}`}>{descripcion}</p>
+      <h3 className={`text-lg font-bold ${mostrarImagen ? 'max-w-[65%]' : ''}`}>{titulo}</h3>
+      <p className={`text-sm ${mostrarImagen ? 'max-w-[75%]' : ''} ${destacado ? 'opacity-90' : 'text-text-muted'}`}>
+        {descripcion}
+      </p>
       <button
         type="button"
-        className={`mt-auto self-start rounded-full px-4 py-1.5 text-sm font-semibold ${
+        className={`relative mt-auto self-start rounded-full px-4 py-1.5 text-sm font-semibold ${
           destacado ? 'bg-accent text-text-on-accent' : 'bg-surface-mint text-primary'
         }`}
       >

@@ -2,6 +2,8 @@ import { Icon } from '@/components/ui/Icon'
 import { MissionStamp } from '@/components/passport/MissionStamp'
 import { getLevels } from '@/data/dataService'
 import { useExplorer } from '@/state/explorerContext'
+import { useTheme } from '@/theme/ThemeContext'
+import { astronautaMini, pasaporteLibro } from '@/assets/espacial'
 import { ID_EXPLORADOR_MOCK } from '@/state/types'
 
 const ETIQUETA_ROL: Record<string, string> = {
@@ -18,10 +20,21 @@ export function ExplorerPassport() {
   const {
     estado: { nombre, rol, rango, nivelActual, xpTotal, monedas, racha, sellosObtenidos },
   } = useExplorer()
+  const { tema } = useTheme()
   const niveles = getLevels()
 
   return (
     <div className="space-y-6">
+      {tema === 'espacial' && (
+        <div className="flex justify-center rounded-card bg-surface p-3 shadow-card">
+          <img
+            src={pasaporteLibro}
+            alt="Pasaporte del Explorador IA — ilustración de campaña"
+            className="max-h-64 rounded-lg object-contain"
+          />
+        </div>
+      )}
+
       <div className="grid gap-4 rounded-card bg-surface-beige p-4 shadow-card md:grid-cols-[1fr_1.4fr] md:p-6">
         {/* Página izquierda: perfil */}
         <div className="rounded-card bg-surface p-6 shadow-card">
@@ -31,9 +44,17 @@ export function ExplorerPassport() {
           </div>
 
           <div className="mt-4 flex flex-col items-center text-center">
-            <span className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-text-on-primary shadow-card">
-              <Icon name="rocket_launch" className="text-3xl" />
-            </span>
+            {tema === 'espacial' ? (
+              <img
+                src={astronautaMini}
+                alt=""
+                className="h-20 w-20 rounded-full object-cover shadow-card ring-2 ring-accent/50"
+              />
+            ) : (
+              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-text-on-primary shadow-card">
+                <Icon name="rocket_launch" className="text-3xl" />
+              </span>
+            )}
             <p className="mt-3 text-lg font-bold">{nombre}</p>
             <p className="text-xs text-text-muted">ID explorador: {ID_EXPLORADOR_MOCK}</p>
             <p className="mt-1 text-xs text-text-muted">{ETIQUETA_ROL[rol]}</p>

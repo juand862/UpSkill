@@ -1,4 +1,5 @@
 import { CommunityTeaser } from '@/components/community/CommunityTeaser'
+import { trofeoHackaton } from '@/assets/espacial'
 
 // PLACEHOLDER: contenido teaser de la capa social — sin foros/eventos reales todavía (doc base §8)
 const TEASERS = [
@@ -23,6 +24,7 @@ const TEASERS = [
     descripcion: 'Innova · Colabora · Transforma. Forma equipo, propone una idea y compite por reconocimiento.',
     cta: 'Acepta el reto',
     destacado: true,
+    imagenEspacial: trofeoHackaton,
   },
   {
     icono: 'event',
