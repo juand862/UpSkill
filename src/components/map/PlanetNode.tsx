@@ -1,17 +1,8 @@
 import { Icon } from '@/components/ui/Icon'
+import { ICONO_POR_NIVEL } from '@/data/levelIcons'
 import type { Level } from '@/data/types'
 
 export type EstadoNodo = 'bloqueado' | 'activo' | 'completado'
-
-// Un ícono representativo por nivel, para diferenciar los "planetas" a simple vista
-const ICONO_POR_NIVEL: Record<number, string> = {
-  1: 'rocket_launch',
-  2: 'explore',
-  3: 'bolt',
-  4: 'public',
-  5: 'groups',
-  6: 'workspace_premium',
-}
 
 const ESTILO_POR_ESTADO: Record<EstadoNodo, string> = {
   bloqueado: 'bg-[var(--color-node-locked)] text-text-muted',
