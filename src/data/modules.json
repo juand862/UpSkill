@@ -1,0 +1,255 @@
+[
+  {
+    "id": "1-1",
+    "levelId": 1,
+    "titulo": "¿Qué es y qué no es la IA?",
+    "descripcion": "Fundamentos: conceptos clave de inteligencia artificial y modelos de lenguaje, sin jerga técnica.",
+    "tipo": "aprende",
+    "xp": 50,
+    "monedas": 10,
+    "fuenteConceptual": "F1"
+  },
+  {
+    "id": "1-2",
+    "levelId": 1,
+    "titulo": "Cómo piensa un modelo de lenguaje",
+    "descripcion": "Una mirada simple a cómo un modelo genera respuestas, y por qué a veces se equivoca.",
+    "tipo": "aprende",
+    "xp": 50,
+    "monedas": 10,
+    "fuenteConceptual": "F1"
+  },
+  {
+    "id": "1-3",
+    "levelId": 1,
+    "titulo": "Tu primer prompt útil",
+    "descripcion": "Escribe y prueba un prompt que resuelva algo real de tu día a día en Covalto.",
+    "tipo": "aplica",
+    "xp": 100,
+    "monedas": 25,
+    "fuenteConceptual": "F1"
+  },
+  {
+    "id": "1-4",
+    "levelId": 1,
+    "titulo": "Ética y uso responsable de IA en banca",
+    "descripcion": "Qué información nunca debes compartir con una IA y por qué, en un entorno regulado.",
+    "tipo": "aprende",
+    "xp": 60,
+    "monedas": 15,
+    "fuenteConceptual": "F1"
+  },
+
+  {
+    "id": "2-1",
+    "levelId": 2,
+    "titulo": "Gemini for Workspace: primeros pasos",
+    "descripcion": "Recorrido guiado por Gemini dentro de Docs, Sheets y Gmail.",
+    "tipo": "aprende",
+    "xp": 60,
+    "monedas": 15,
+    "fuenteConceptual": "F1"
+  },
+  {
+    "id": "2-2",
+    "levelId": 2,
+    "titulo": "NotebookLM para organizar información",
+    "descripcion": "Convierte documentos dispersos en un asistente de consulta propio.",
+    "tipo": "aprende",
+    "xp": 60,
+    "monedas": 15,
+    "fuenteConceptual": "F1"
+  },
+  {
+    "id": "2-3",
+    "levelId": 2,
+    "titulo": "Looker: consulta tus datos en lenguaje natural",
+    "descripcion": "Haz preguntas sobre un tablero de datos sin escribir una sola fórmula.",
+    "tipo": "aprende",
+    "xp": 60,
+    "monedas": 15,
+    "fuenteConceptual": "F1"
+  },
+  {
+    "id": "2-4",
+    "levelId": 2,
+    "titulo": "Reto: 3 herramientas, una tarea real",
+    "descripcion": "Combina al menos tres herramientas del ecosistema para resolver una tarea de tu equipo.",
+    "tipo": "aplica",
+    "xp": 120,
+    "monedas": 30,
+    "fuenteConceptual": "F1",
+    "variantesPorRol": {
+      "tecnico": { "descripcion": "Combina al menos tres herramientas del ecosistema para agilizar un flujo técnico de tu equipo." },
+      "no_tecnico": { "descripcion": "Combina al menos tres herramientas del ecosistema para agilizar una tarea administrativa de tu equipo." }
+    }
+  },
+
+  {
+    "id": "3-1",
+    "levelId": 3,
+    "titulo": "Automation Forge: tu primera automatización",
+    "descripcion": "Automatiza una tarea repetitiva de tu trabajo con el Lab de automatización.",
+    "tipo": "aplica",
+    "xp": 150,
+    "monedas": 35,
+    "fuenteConceptual": "F2",
+    "variantesPorRol": {
+      "tecnico": { "titulo": "Automation Forge: automatiza un flujo de datos" },
+      "no_tecnico": { "titulo": "Automation Forge: automatiza una tarea administrativa" }
+    }
+  },
+  {
+    "id": "3-2",
+    "levelId": 3,
+    "titulo": "Maturity Magic: diagnostica tu equipo",
+    "descripcion": "Identifica oportunidades de IA en los procesos de tu equipo con el Lab de diagnóstico.",
+    "tipo": "aplica",
+    "xp": 150,
+    "monedas": 35,
+    "fuenteConceptual": "F2"
+  },
+  {
+    "id": "3-3",
+    "levelId": 3,
+    "titulo": "Fundamentos de automatización sin código",
+    "descripcion": "Conceptos base para diseñar flujos automatizados sin escribir código.",
+    "tipo": "aprende",
+    "xp": 70,
+    "monedas": 15,
+    "fuenteConceptual": "F2"
+  },
+  {
+    "id": "3-4",
+    "levelId": 3,
+    "titulo": "Resuelve un caso real de tu trabajo con IA",
+    "descripcion": "Elige un problema real de tu rol y resuélvelo aplicando lo aprendido en el nivel.",
+    "tipo": "aplica",
+    "xp": 180,
+    "monedas": 40,
+    "fuenteConceptual": "F2"
+  },
+
+  {
+    "id": "4-1",
+    "levelId": 4,
+    "titulo": "Inbox Sentinel: automatiza tu correo",
+    "descripcion": "Configura reglas inteligentes para priorizar y responder correo con IA.",
+    "tipo": "aplica",
+    "xp": 160,
+    "monedas": 35,
+    "fuenteConceptual": "F2"
+  },
+  {
+    "id": "4-2",
+    "levelId": 4,
+    "titulo": "Conecta tu automatización a una app real",
+    "descripcion": "Integra tu automatización con una herramienta que ya usas (Sheets, Slack, un formulario).",
+    "tipo": "aplica",
+    "xp": 180,
+    "monedas": 40,
+    "fuenteConceptual": "F2"
+  },
+  {
+    "id": "4-3",
+    "levelId": 4,
+    "titulo": "Buenas prácticas de gobierno de datos",
+    "descripcion": "Qué revisar antes de automatizar algo que toca datos sensibles o de clientes.",
+    "tipo": "aprende",
+    "xp": 80,
+    "monedas": 20,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "4-4",
+    "levelId": 4,
+    "titulo": "Publica tu automatización para tu equipo",
+    "descripcion": "Documenta y comparte tu automatización para que otros en tu equipo la usen.",
+    "tipo": "aplica",
+    "xp": 200,
+    "monedas": 45,
+    "fuenteConceptual": "F2"
+  },
+
+  {
+    "id": "5-1",
+    "levelId": 5,
+    "titulo": "Comparte tu caso en la Comunidad IA",
+    "descripcion": "Publica tu caso de uso en el foro para que otros exploradores lo repliquen.",
+    "tipo": "aplica",
+    "xp": 150,
+    "monedas": 35,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "5-2",
+    "levelId": 5,
+    "titulo": "Mentorea a un colega en su primer prompt",
+    "descripcion": "Acompaña a alguien de tu equipo a escribir y probar su primer prompt útil.",
+    "tipo": "aplica",
+    "xp": 180,
+    "monedas": 40,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "5-3",
+    "levelId": 5,
+    "titulo": "Publica un skill en el AKB",
+    "descripcion": "Documenta una habilidad o prompt reutilizable en la base de conocimiento de IA.",
+    "tipo": "aplica",
+    "xp": 220,
+    "monedas": 50,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "5-4",
+    "levelId": 5,
+    "titulo": "Facilita una charla breve sobre IA",
+    "descripcion": "Prepara y da una charla de 15 minutos sobre IA a tu equipo.",
+    "tipo": "aplica",
+    "xp": 220,
+    "monedas": 50,
+    "fuenteConceptual": "AKB"
+  },
+
+  {
+    "id": "6-1",
+    "levelId": 6,
+    "titulo": "Diseña un playbook de IA para tu dominio",
+    "descripcion": "Crea una guía práctica de IA aplicada a tu dominio (crédito, BI, documental u operaciones).",
+    "tipo": "aplica",
+    "xp": 250,
+    "monedas": 55,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "6-2",
+    "levelId": 6,
+    "titulo": "Postúlate al pipeline de AI Champions",
+    "descripcion": "Presenta tu portafolio de casos aplicados para el pipeline de AI Champions.",
+    "tipo": "aplica",
+    "xp": 200,
+    "monedas": 45,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "6-3",
+    "levelId": 6,
+    "titulo": "Lidera una sesión del Día IA Covalto",
+    "descripcion": "Facilita una sesión completa en el evento ancla de comunidad de IA.",
+    "tipo": "aplica",
+    "xp": 250,
+    "monedas": 55,
+    "fuenteConceptual": "AKB"
+  },
+  {
+    "id": "6-4",
+    "levelId": 6,
+    "titulo": "Referente IA: certifica tu nivel",
+    "descripcion": "Presenta tu recorrido y casos aplicados ante el comité para certificarte como referente IA.",
+    "tipo": "aplica",
+    "xp": 280,
+    "monedas": 60,
+    "fuenteConceptual": "AKB"
+  }
+]

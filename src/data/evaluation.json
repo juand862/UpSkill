@@ -1,0 +1,76 @@
+{
+  "escala": { "min": 1, "max": 5 },
+  "preguntas": [
+    {
+      "id": "d1",
+      "dimension": "D1",
+      "etiquetaDimension": "Uso básico",
+      "pregunta": "¿Qué tan seguido usas herramientas de IA (Gemini, Copilot, ChatGPT…) en tu trabajo diario?",
+      "opciones": [
+        { "valor": 1, "texto": "Nunca las he usado" },
+        { "valor": 2, "texto": "Rara vez" },
+        { "valor": 3, "texto": "Algunas veces por semana" },
+        { "valor": 4, "texto": "Casi todos los días" },
+        { "valor": 5, "texto": "Varias veces al día" }
+      ]
+    },
+    {
+      "id": "d2",
+      "dimension": "D2",
+      "etiquetaDimension": "Uso aplicado",
+      "pregunta": "¿Qué tan cómodo te sientes usando IA para resolver una tarea real de tu rol?",
+      "opciones": [
+        { "valor": 1, "texto": "Nada cómodo" },
+        { "valor": 2, "texto": "Poco cómodo" },
+        { "valor": 3, "texto": "Cómodo en tareas simples" },
+        { "valor": 4, "texto": "Cómodo en tareas complejas" },
+        { "valor": 5, "texto": "Es parte natural de cómo trabajo" }
+      ]
+    },
+    {
+      "id": "d3",
+      "dimension": "D3",
+      "etiquetaDimension": "Automatización",
+      "pregunta": "¿Has automatizado o construido algo con IA (un flujo, un asistente, un reporte)?",
+      "opciones": [
+        { "valor": 1, "texto": "No, ni lo he intentado" },
+        { "valor": 2, "texto": "Lo he pensado, no lo he hecho" },
+        { "valor": 3, "texto": "Probé algo pequeño una vez" },
+        { "valor": 4, "texto": "Tengo una automatización en uso" },
+        { "valor": 5, "texto": "Tengo varias automatizaciones en uso" }
+      ]
+    },
+    {
+      "id": "d4",
+      "dimension": "D4",
+      "etiquetaDimension": "Compartir",
+      "pregunta": "¿Con qué frecuencia compartes lo que aprendes de IA con tu equipo?",
+      "opciones": [
+        { "valor": 1, "texto": "Nunca" },
+        { "valor": 2, "texto": "Rara vez" },
+        { "valor": 3, "texto": "De vez en cuando, informalmente" },
+        { "valor": 4, "texto": "Seguido, en reuniones de equipo" },
+        { "valor": 5, "texto": "Constantemente, es parte de mi rol" }
+      ]
+    },
+    {
+      "id": "d5",
+      "dimension": "D5",
+      "etiquetaDimension": "Liderazgo",
+      "pregunta": "¿Has facilitado, mentoreado o liderado una iniciativa de IA en Covalto?",
+      "opciones": [
+        { "valor": 1, "texto": "No" },
+        { "valor": 2, "texto": "Me gustaría, no lo he hecho" },
+        { "valor": 3, "texto": "He ayudado informalmente a alguien" },
+        { "valor": 4, "texto": "He facilitado una sesión o mentoría" },
+        { "valor": 5, "texto": "Lidero una iniciativa de IA activamente" }
+      ]
+    }
+  ],
+  "umbrales": [
+    { "rango": "Novato", "min": 5, "max": 9, "nivelSugerido": 1 },
+    { "rango": "Explorador", "min": 10, "max": 15, "nivelSugerido": 2 },
+    { "rango": "Avanzado", "min": 16, "max": 20, "nivelSugerido": 3 },
+    { "rango": "Experto", "min": 21, "max": 25, "nivelSugerido": 5 }
+  ]
+}

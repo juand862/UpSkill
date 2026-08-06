@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "slug": "despegue",
+    "nombre": "Despegue",
+    "aaa": "Aprende",
+    "senalDominio": "Sabe qué es y qué no es la IA; primer prompt útil",
+    "moduloIds": ["1-1", "1-2", "1-3", "1-4"],
+    "xpObjetivo": 260
+  },
+  {
+    "id": 2,
+    "slug": "exploracion",
+    "nombre": "Exploración",
+    "aaa": "Aprende",
+    "senalDominio": "Usa herramientas del ecosistema con confianza",
+    "moduloIds": ["2-1", "2-2", "2-3", "2-4"],
+    "xpObjetivo": 300
+  },
+  {
+    "id": 3,
+    "slug": "desafio",
+    "nombre": "Desafío",
+    "aaa": "Automatiza",
+    "senalDominio": "Resuelve un caso real de su trabajo con IA",
+    "moduloIds": ["3-1", "3-2", "3-3", "3-4"],
+    "xpObjetivo": 550
+  },
+  {
+    "id": 4,
+    "slug": "nuevos-mundos",
+    "nombre": "Nuevos Mundos",
+    "aaa": "Automatiza",
+    "senalDominio": "Construye una automatización",
+    "moduloIds": ["4-1", "4-2", "4-3", "4-4"],
+    "xpObjetivo": 620
+  },
+  {
+    "id": 5,
+    "slug": "liderazgo",
+    "nombre": "Liderazgo",
+    "aaa": "Amplifica",
+    "senalDominio": "Comparte y multiplica (cierra la brecha D4)",
+    "moduloIds": ["5-1", "5-2", "5-3", "5-4"],
+    "xpObjetivo": 770
+  },
+  {
+    "id": 6,
+    "slug": "experto-ia",
+    "nombre": "Experto IA",
+    "aaa": "Amplifica",
+    "senalDominio": "Es referente y facilitador → candidato a AI Champion",
+    "moduloIds": ["6-1", "6-2", "6-3", "6-4"],
+    "xpObjetivo": 980
+  }
+]

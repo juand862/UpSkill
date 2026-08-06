@@ -1,0 +1,12 @@
+[
+  { "id": "r1", "nombre": "AstronautaPro", "xp": 18450, "rango": "Experto", "avatarSeed": "astronauta-pro" },
+  { "id": "r2", "nombre": "IA_Pionero", "xp": 15320, "rango": "Experto", "avatarSeed": "ia-pionero" },
+  { "id": "r3", "nombre": "DataExplorer", "xp": 13980, "rango": "Avanzado", "avatarSeed": "data-explorer" },
+  { "id": "r4", "nombre": "VisionarioIA", "xp": 12450, "rango": "Avanzado", "avatarSeed": "visionario-ia" },
+  { "id": "r5", "nombre": "NovaCode", "xp": 10870, "rango": "Avanzado", "avatarSeed": "nova-code" },
+  { "id": "r6", "nombre": "OrbitAnalista", "xp": 9340, "rango": "Explorador", "avatarSeed": "orbit-analista" },
+  { "id": "r7", "nombre": "QuantumRiesgos", "xp": 8120, "rango": "Explorador", "avatarSeed": "quantum-riesgos" },
+  { "id": "r8", "nombre": "PulsarOps", "xp": 6790, "rango": "Explorador", "avatarSeed": "pulsar-ops" },
+  { "id": "r9", "nombre": "ByteComercial", "xp": 4230, "rango": "Explorador", "avatarSeed": "byte-comercial" },
+  { "id": "r10", "nombre": "StarLidera", "xp": 2100, "rango": "Novato", "avatarSeed": "star-lidera" }
+]

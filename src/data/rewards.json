@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rw1",
+    "titulo": "Reconocimiento en el boletín de IA",
+    "descripcion": "Tu caso de uso destacado en el boletín semanal de la Comunidad IA.",
+    "categoria": "reconocimiento",
+    "costoMonedas": 100,
+    "placeholder": true
+  },
+  {
+    "id": "rw2",
+    "titulo": "Medio día protegido para explorar IA",
+    "descripcion": "Bloquea medio día en tu calendario, sin reuniones, para experimentar con IA.",
+    "categoria": "tiempo_protegido",
+    "costoMonedas": 300,
+    "placeholder": true
+  },
+  {
+    "id": "rw3",
+    "titulo": "Acceso VIP al Día IA Covalto",
+    "descripcion": "Lugar prioritario y sesión de preguntas con los speakers del evento.",
+    "categoria": "acceso_eventos",
+    "costoMonedas": 200,
+    "placeholder": true
+  },
+  {
+    "id": "rw4",
+    "titulo": "Perfil destacado en la Comunidad IA",
+    "descripcion": "Tu perfil de explorador aparece fijado en la página principal de la comunidad.",
+    "categoria": "visibilidad",
+    "costoMonedas": 150,
+    "placeholder": true
+  },
+  {
+    "id": "rw5",
+    "titulo": "Sesión 1:1 con Datos e IA",
+    "descripcion": "Media hora con el equipo de Datos e IA para llevar más lejos tu caso de uso.",
+    "categoria": "reconocimiento",
+    "costoMonedas": 250,
+    "placeholder": true
+  },
+  {
+    "id": "rw6",
+    "titulo": "Cupo prioritario al Hackatón Covalto IA",
+    "descripcion": "Asegura tu lugar y el de tu equipo en la próxima edición del Hackatón.",
+    "categoria": "acceso_eventos",
+    "costoMonedas": 180,
+    "placeholder": true
+  },
+  {
+    "id": "rw7",
+    "titulo": "Menciona tu caso en la Town Hall",
+    "descripcion": "Presenta tu caso de uso frente a liderazgo en la próxima Town Hall.",
+    "categoria": "visibilidad",
+    "costoMonedas": 350,
+    "placeholder": true
+  },
+  {
+    "id": "rw8",
+    "titulo": "Tarde libre para tu proyecto de automatización",
+    "descripcion": "Una tarde protegida para avanzar tu propia idea de automatización con IA.",
+    "categoria": "tiempo_protegido",
+    "costoMonedas": 400,
+    "placeholder": true
+  }
+]
