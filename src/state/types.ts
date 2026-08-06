@@ -39,6 +39,8 @@ export interface ExplorerState {
   sellosObtenidos: number[]
   evaluacionCompletada: boolean
   respuestasEvaluacion?: Record<string, number>
+  /** IDs de recompensas ya canjeadas (Bloque 8) — solo no monetarias, CLAUDE.md §7 */
+  recompensasCanjeadas: string[]
 }
 
 export const ID_EXPLORADOR_MOCK = 'COV-2026-IA-0001' // PLACEHOLDER: id ficticio, no es un dato real

@@ -24,6 +24,7 @@ export const ESTADO_INICIAL: ExplorerState = {
   modulosCompletados: [],
   sellosObtenidos: [1],
   evaluacionCompletada: false,
+  recompensasCanjeadas: [],
 }
 
 export type ExplorerAction =
@@ -42,6 +43,7 @@ export type ExplorerAction =
       xpObjetivoNivelSugerido: number
     }
   | { type: 'REINICIAR_PROGRESO' }
+  | { type: 'CANJEAR_RECOMPENSA'; recompensaId: string; costoMonedas: number }
   // Acciones de las que dependen los Bloques 3–5 (datos + mapa + detalle de nivel);
   // se declaran ya para fijar el contrato del estado, aunque hoy nada las dispara.
   | {
@@ -100,6 +102,17 @@ export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): 
         sellosObtenidos: base.sellosObtenidos.includes(accion.completaNivel.nivelId)
           ? base.sellosObtenidos
           : [...base.sellosObtenidos, accion.completaNivel.nivelId],
+      }
+    }
+
+    case 'CANJEAR_RECOMPENSA': {
+      const yaCanjeada = estado.recompensasCanjeadas.includes(accion.recompensaId)
+      const alcanza = estado.monedas >= accion.costoMonedas
+      if (yaCanjeada || !alcanza) return estado // guarda también en el reducer, no solo en la UI
+      return {
+        ...estado,
+        monedas: estado.monedas - accion.costoMonedas,
+        recompensasCanjeadas: [...estado.recompensasCanjeadas, accion.recompensaId],
       }
     }
 
