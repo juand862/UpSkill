@@ -28,7 +28,19 @@ export const ESTADO_INICIAL: ExplorerState = {
 
 export type ExplorerAction =
   | { type: 'CAMBIAR_ROL'; rol: ExplorerState['rol'] }
-  | { type: 'COMPLETAR_EVALUACION'; rango: ExplorerState['rango']; respuestas: Record<string, number> }
+  | {
+      type: 'COMPLETAR_EVALUACION'
+      rango: ExplorerState['rango']
+      respuestas: Record<string, number>
+      /**
+       * Punto de entrada sugerido por el puntaje (doc base §6: "la
+       * autoevaluación se reutiliza como instrumento de nivelación"). Solo
+       * reposiciona al explorador si aún no tiene módulos completados —
+       * nunca le quita progreso real ya hecho.
+       */
+      nivelSugerido: number
+      xpObjetivoNivelSugerido: number
+    }
   | { type: 'REINICIAR_PROGRESO' }
   // Acciones de las que dependen los Bloques 3–5 (datos + mapa + detalle de nivel);
   // se declaran ya para fijar el contrato del estado, aunque hoy nada las dispara.
@@ -51,13 +63,20 @@ export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): 
     case 'CAMBIAR_ROL':
       return { ...estado, rol: accion.rol }
 
-    case 'COMPLETAR_EVALUACION':
+    case 'COMPLETAR_EVALUACION': {
+      const sinProgresoPrevio = estado.modulosCompletados.length === 0
       return {
         ...estado,
         rango: accion.rango,
         evaluacionCompletada: true,
         respuestasEvaluacion: accion.respuestas,
+        ...(sinProgresoPrevio && {
+          nivelActual: accion.nivelSugerido,
+          xpNivelActual: 0,
+          xpNivelObjetivo: accion.xpObjetivoNivelSugerido,
+        }),
       }
+    }
 
     case 'COMPLETAR_MODULO': {
       if (estado.modulosCompletados.includes(accion.moduloId)) return estado // evita doble conteo
