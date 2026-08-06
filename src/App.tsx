@@ -8,6 +8,7 @@ import { EvaluationPage } from '@/pages/EvaluationPage'
 import { RankingPage } from '@/pages/RankingPage'
 import { CommunityPage } from '@/pages/CommunityPage'
 import { RewardsPage } from '@/pages/RewardsPage'
+import { AccountPage } from '@/pages/AccountPage'
 
 /**
  * App.tsx — enrutamiento del prototipo.
@@ -27,6 +28,7 @@ function App() {
           <Route path="/ranking" element={<RankingPage />} />
           <Route path="/comunidad" element={<CommunityPage />} />
           <Route path="/recompensas" element={<RewardsPage />} />
+          <Route path="/cuenta" element={<AccountPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -15,6 +15,12 @@ dist-ssr
 # Vercel (config local de vínculo proyecto <-> carpeta; se genera al correr `vercel link`)
 .vercel
 
+# Variables de entorno con credenciales reales (Supabase). *.local ya las cubre
+# (.env.local, .env.development.local...); estas líneas lo dejan explícito.
+.env
+.env.local
+.env.*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

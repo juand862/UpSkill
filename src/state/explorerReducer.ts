@@ -2,8 +2,13 @@
  * explorerReducer.ts — reducer del estado global del explorador.
  *
  * // PLACEHOLDER: el estado inicial es un mock de un explorador "a media
- * ruta" para que el HUD y el prototipo se vean poblados en la demo. No
- * representa a ningún colaborador real (guardrail §9, cero PII).
+ * ruta" para que el HUD y el prototipo se vean poblados en la demo cuando
+ * nadie se ha identificado con su correo (modo local/anónimo). No
+ * representa a ningún colaborador real.
+ *
+ * Cuando el explorador se identifica con un correo @covalto.com
+ * (IDENTIFICAR_USUARIO), el estado pasa a reflejar su fila real en la
+ * base de datos (src/backend/) — ver la nota de alcance en CLAUDE.md.
  *
  * El nivel actual (1–6) sigue el modelo canónico de CLAUDE.md §4, distinto
  * del "Nivel 12" numérico del arte de referencia (ese es un contador de
@@ -12,7 +17,9 @@
 import type { ExplorerState } from './types'
 
 export const ESTADO_INICIAL: ExplorerState = {
-  nombre: 'Tu Nombre Aquí', // PLACEHOLDER: se reemplaza por input del usuario si el prototipo lo requiere
+  nombre: 'Tu Nombre Aquí', // PLACEHOLDER: modo local/demo — se reemplaza al identificarse con un correo real
+  alias: null,
+  correo: null,
   rol: 'no_tecnico',
   rango: 'Explorador',
   nivelActual: 2,
@@ -25,6 +32,38 @@ export const ESTADO_INICIAL: ExplorerState = {
   sellosObtenidos: [1],
   evaluacionCompletada: false,
   recompensasCanjeadas: [],
+  fechaRegistro: null,
+  ultimoAcceso: null,
+}
+
+/** Progreso "en cero" para un explorador real recién registrado o que reinicia su progreso real */
+const PROGRESO_CERO: Pick<
+  ExplorerState,
+  | 'rango'
+  | 'nivelActual'
+  | 'xpTotal'
+  | 'xpNivelActual'
+  | 'xpNivelObjetivo'
+  | 'monedas'
+  | 'racha'
+  | 'modulosCompletados'
+  | 'sellosObtenidos'
+  | 'recompensasCanjeadas'
+  | 'evaluacionCompletada'
+  | 'respuestasEvaluacion'
+> = {
+  rango: 'Novato',
+  nivelActual: 1,
+  xpTotal: 0,
+  xpNivelActual: 0,
+  xpNivelObjetivo: 260, // = xpObjetivo real del nivel 1 en levels.json (Despegue)
+  monedas: 0,
+  racha: { dias: 0, ultimaActividad: null },
+  modulosCompletados: [],
+  sellosObtenidos: [],
+  recompensasCanjeadas: [],
+  evaluacionCompletada: false,
+  respuestasEvaluacion: undefined,
 }
 
 export type ExplorerAction =
@@ -44,6 +83,10 @@ export type ExplorerAction =
     }
   | { type: 'REINICIAR_PROGRESO' }
   | { type: 'CANJEAR_RECOMPENSA'; recompensaId: string; costoMonedas: number }
+  // Identidad real (BD) — un explorador identificado reemplaza el estado
+  // local/demo por su fila real; cerrar sesión vuelve al modo local.
+  | { type: 'IDENTIFICAR_USUARIO'; estado: ExplorerState }
+  | { type: 'CERRAR_SESION' }
   // Acciones de las que dependen los Bloques 3–5 (datos + mapa + detalle de nivel);
   // se declaran ya para fijar el contrato del estado, aunque hoy nada las dispara.
   | {
@@ -64,6 +107,12 @@ export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): 
   switch (accion.type) {
     case 'CAMBIAR_ROL':
       return { ...estado, rol: accion.rol }
+
+    case 'IDENTIFICAR_USUARIO':
+      return accion.estado
+
+    case 'CERRAR_SESION':
+      return ESTADO_INICIAL
 
     case 'COMPLETAR_EVALUACION': {
       const sinProgresoPrevio = estado.modulosCompletados.length === 0
@@ -124,7 +173,9 @@ export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): 
     }
 
     case 'REINICIAR_PROGRESO':
-      return ESTADO_INICIAL
+      // Identificado (BD real): conserva identidad, reinicia el progreso a cero.
+      // Modo local/demo: vuelve al mock inicial de siempre.
+      return estado.correo ? { ...estado, ...PROGRESO_CERO } : ESTADO_INICIAL
 
     default:
       return estado

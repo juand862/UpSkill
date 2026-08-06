@@ -3,7 +3,7 @@ import { NOMBRE_EXPERIENCIA } from '@/config/branding'
 import { Icon } from '@/components/ui/Icon'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { PersistentHUD } from '@/components/hud/PersistentHUD'
-import { useReiniciarProgreso } from '@/state/explorerContext'
+import { useExplorer, useReiniciarProgreso } from '@/state/explorerContext'
 
 const NAV_ITEMS = [
   { to: '/mapa', label: 'Mapa', icono: 'route' },
@@ -26,6 +26,33 @@ function NavItem({ to, label, icono }: (typeof NAV_ITEMS)[number]) {
     >
       <Icon name={icono} className="text-[18px]" />
       <span className="hidden md:inline">{label}</span>
+    </NavLink>
+  )
+}
+
+/** Acceso a /cuenta — distingue identificado (BD real) de modo local/demo */
+function CuentaLink() {
+  const {
+    estado: { correo, alias, nombre },
+  } = useExplorer()
+  const identificado = Boolean(correo)
+
+  return (
+    <NavLink
+      to="/cuenta"
+      title={identificado ? `Sesión: ${alias ?? nombre}` : 'Identificarte con tu correo Covalto'}
+      className={({ isActive }) =>
+        `flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-sm font-medium transition ${
+          isActive
+            ? 'border-primary bg-primary text-text-on-primary'
+            : identificado
+              ? 'border-accent text-primary hover:bg-surface-mint'
+              : 'border-[var(--color-border)] text-text-muted hover:border-primary hover:text-primary'
+        }`
+      }
+    >
+      <Icon name={identificado ? 'verified_user' : 'account_circle'} className="text-[18px]" />
+      <span className="hidden lg:inline">{identificado ? (alias ?? nombre) : 'Cuenta'}</span>
     </NavLink>
   )
 }
@@ -55,6 +82,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <CuentaLink />
           <ThemeToggle />
           <button
             type="button"

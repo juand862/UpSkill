@@ -3,6 +3,17 @@
 > Instrucciones de proyecto para Claude Code. Este archivo es la fuente de verdad del build.
 > Léelo completo antes de escribir código. Lee también `docs/concepto-visual.png` (el concepto de UI/mecánica) y `docs/Covalto3_Ruta_Formacion_Documento_Base.md` (el documento ancla del contenido).
 
+> ⚠️ **Nota de alcance (2026-08-06):** el stakeholder pidió explícitamente sumar una
+> base de datos real (Postgres/Supabase) para una tabla de usuarios — nombre, alias,
+> correo `@covalto.com`, nivel/XP/monedas/racha/módulos/sellos, fecha de registro y
+> último acceso. Esto **contradice a propósito** el "sin backend real" de §1/§7 y el
+> "sin llamadas de red" de §9 originales — fue una decisión consciente, no un
+> incumplimiento accidental de este documento. El resto de los guardrails (cero
+> recompensas monetarias, cero PII de terceros en ilustraciones, etc.) sigue vigente
+> tal cual. Detalle técnico y limitaciones de seguridad conocidas en `README.md` §
+> "Base de datos (Supabase)" y en `supabase/migrations/0001_usuarios.sql`. El
+> prototipo sigue siendo 100% demostrable sin la BD conectada (cae a modo local).
+
 ---
 
 ## 1 · Qué construimos
