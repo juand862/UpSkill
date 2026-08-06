@@ -16,9 +16,9 @@ export const ESTADO_INICIAL: ExplorerState = {
   rol: 'no_tecnico',
   rango: 'Explorador',
   nivelActual: 2,
-  xpTotal: 820,
-  xpNivelActual: 320,
-  xpNivelObjetivo: 500,
+  xpTotal: 820, // acumulado "de niveles previos" — no se reconcilia módulo a módulo, es solo flavor de demo
+  xpNivelActual: 0, // sin módulos del nivel 2 pre-marcados como completados, la barra empieza en 0 (consistente)
+  xpNivelObjetivo: 300, // = xpObjetivo real del nivel 2 en levels.json (Exploración)
   monedas: 450,
   racha: { dias: 4, ultimaActividad: null },
   modulosCompletados: [],
@@ -94,14 +94,21 @@ export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): 
 
       if (!accion.completaNivel) return base
 
+      const sellosConEste = base.sellosObtenidos.includes(accion.completaNivel.nivelId)
+        ? base.sellosObtenidos
+        : [...base.sellosObtenidos, accion.completaNivel.nivelId]
+
+      // Nivel máximo (6): otorga el sello pero no hay siguiente nivel al
+      // que avanzar, así que no reinicia la barra de XP del nivel actual.
+      const esNivelMaximo = accion.completaNivel.siguienteNivelId === accion.completaNivel.nivelId
+      if (esNivelMaximo) return { ...base, sellosObtenidos: sellosConEste }
+
       return {
         ...base,
         nivelActual: accion.completaNivel.siguienteNivelId,
         xpNivelActual: 0,
         xpNivelObjetivo: accion.completaNivel.siguienteXpObjetivo,
-        sellosObtenidos: base.sellosObtenidos.includes(accion.completaNivel.nivelId)
-          ? base.sellosObtenidos
-          : [...base.sellosObtenidos, accion.completaNivel.nivelId],
+        sellosObtenidos: sellosConEste,
       }
     }
 

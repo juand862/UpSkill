@@ -60,9 +60,10 @@ export function Header() {
             type="button"
             onClick={confirmarReinicio}
             title="Reiniciar progreso (prototipo)"
-            className="flex items-center gap-1 rounded-full border border-[var(--color-border)] px-2.5 py-1.5 text-text-muted transition hover:text-primary"
+            className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] px-2.5 py-1.5 text-text-muted transition hover:border-primary hover:text-primary"
           >
             <Icon name="restart_alt" className="text-[18px]" />
+            <span className="hidden lg:inline text-sm font-medium">Reiniciar</span>
           </button>
         </div>
 
