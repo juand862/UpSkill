@@ -37,8 +37,13 @@ export type ExplorerAction =
       moduloId: string
       xp: number
       monedas: number
-      /** Si este módulo era el último del nivel, se otorga el sello y se desbloquea el siguiente */
-      completaNivel?: { nivelId: number; siguienteXpObjetivo: number }
+      /**
+       * Si este módulo era el último del nivel, se otorga el sello y se
+       * desbloquea el siguiente. `siguienteNivelId` lo calcula quien
+       * despacha la acción (min(nivelId + 1, 6)) para que el nivel 6
+       * (máximo) no intente avanzar más allá de sí mismo.
+       */
+      completaNivel?: { nivelId: number; siguienteNivelId: number; siguienteXpObjetivo: number }
     }
 
 export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): ExplorerState {
@@ -70,7 +75,7 @@ export function explorerReducer(estado: ExplorerState, accion: ExplorerAction): 
 
       return {
         ...base,
-        nivelActual: accion.completaNivel.nivelId + 1,
+        nivelActual: accion.completaNivel.siguienteNivelId,
         xpNivelActual: 0,
         xpNivelObjetivo: accion.completaNivel.siguienteXpObjetivo,
         sellosObtenidos: base.sellosObtenidos.includes(accion.completaNivel.nivelId)
